@@ -37,6 +37,20 @@ The prefix can only shrink as we compare more strings — it never grows. Early-
 
 ---
 
+## Example Walkthrough
+
+Input: `strs = ["flower", "flow", "flight"]`
+
+| Step | Comparing prefix against | Matching chars | prefix after |
+|---|---|---|---|
+| 1 | start | — | `"flower"` |
+| 2 | `"flow"` | `f`, `l`, `o`, `w` match; `"flower"[4]='e'` vs end of `"flow"` | `"flow"` |
+| 3 | `"flight"` | `f`, `l` match; `"flow"[2]='o'` vs `"flight"[2]='i'` mismatch | `"fl"` |
+
+Final result: `"fl"`
+
+---
+
 ## Alternative Approaches
 
 | Approach | Idea | Complexity |

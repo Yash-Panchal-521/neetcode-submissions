@@ -42,3 +42,17 @@ Copy `nums` into a new vector, then prepend another copy of `nums` at the front 
 
 ### Key Insight
 `arr.insert(arr.begin(), nums.begin(), nums.end())` is a single bulk operation — clean and idiomatic C++. The key is doing it in one call, not element-by-element in a loop.
+
+---
+
+## Example Walkthrough (Solution 1 — Index Copy)
+
+Input: `nums = [1, 2, 1]`, so `n = 3`
+
+| i | arr[i] = nums[i] | arr[i+n] = nums[i] | arr so far |
+|---|---|---|---|
+| 0 | arr[0] = 1 | arr[3] = 1 | `[1, _, _, 1, _, _]` |
+| 1 | arr[1] = 2 | arr[4] = 2 | `[1, 2, _, 1, 2, _]` |
+| 2 | arr[2] = 1 | arr[5] = 1 | `[1, 2, 1, 1, 2, 1]` |
+
+Final output: `[1, 2, 1, 1, 2, 1]`

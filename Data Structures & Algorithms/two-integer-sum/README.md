@@ -1,5 +1,10 @@
 # Two Sum
 
+**NeetCode:** [Two Integer Sum](https://neetcode.io/problems/two-integer-sum)
+**Difficulty:** Easy | **Pattern:** Arrays / Hashing
+
+---
+
 ## Approach
 - Use a hash map (`unordered_map`) to store each number along with its index.
 - For every element, calculate the required complement:
@@ -48,6 +53,19 @@ This avoids checking every possible pair.
 
 ## Key Insight
 Instead of comparing every pair (`O(n²)`), store previously seen numbers in a hash map. For each element, directly check whether its complement has already been seen, reducing the solution to a single pass.
+
+---
+
+## Example Walkthrough
+
+Input: `nums = [2, 7, 11, 15]`, `target = 9`
+
+| i | nums[i] | complement (target - nums[i]) | In map? | Action | map after |
+|---|---|---|---|---|---|
+| 0 | 2 | 7 | No | store 2 → 0 | `{2: 0}` |
+| 1 | 7 | 2 | Yes (2 → 0) | return `[0, 1]` | — |
+
+Output: `[0, 1]` (`nums[0] + nums[1] = 2 + 7 = 9`)
 
 ---
 

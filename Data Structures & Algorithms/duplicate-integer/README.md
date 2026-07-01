@@ -39,6 +39,21 @@ Same logic using `map` (Red-Black BST) instead of `unordered_map`.
 
 ---
 
+## Example Walkthrough (Solution 1 — Unordered Map)
+
+Input: `nums = [1, 2, 3, 1]`
+
+| i | num | Already in map? | Action | map after |
+|---|---|---|---|---|
+| 0 | 1 | No | insert, count = 1 | `{1: 1}` |
+| 1 | 2 | No | insert, count = 1 | `{1: 1, 2: 1}` |
+| 2 | 3 | No | insert, count = 1 | `{1: 1, 2: 1, 3: 1}` |
+| 3 | 1 | Yes (count already 1) | return `true` immediately | — |
+
+Output: `true`
+
+---
+
 ## Comparison
 
 | | `unordered_map` | `map` |

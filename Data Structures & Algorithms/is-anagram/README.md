@@ -42,6 +42,31 @@ Sort both strings, then compare character by character. Anagrams produce identic
 
 ---
 
+## Example Walkthrough (Solution 1 — Frequency Array)
+
+Input: `s = "anagram"`, `t = "nagaram"`
+
+| Char processed | From | count array change | Non-zero slots after |
+|---|---|---|---|
+| `a` | s | `count['a']++` → 1 | a:1 |
+| `n` | s | `count['n']++` → 1 | a:1, n:1 |
+| `a` | s | `count['a']++` → 2 | a:2, n:1 |
+| `g` | s | `count['g']++` → 1 | a:2, n:1, g:1 |
+| `r` | s | `count['r']++` → 1 | a:2, n:1, g:1, r:1 |
+| `a` | s | `count['a']++` → 3 | a:3, n:1, g:1, r:1 |
+| `m` | s | `count['m']++` → 1 | a:3, n:1, g:1, r:1, m:1 |
+| `n` | t | `count['n']--` → 0 | a:3, g:1, r:1, m:1 |
+| `a` | t | `count['a']--` → 2 | a:2, g:1, r:1, m:1 |
+| `g` | t | `count['g']--` → 0 | a:2, r:1, m:1 |
+| `a` | t | `count['a']--` → 1 | a:1, r:1, m:1 |
+| `r` | t | `count['r']--` → 0 | a:1, m:1 |
+| `a` | t | `count['a']--` → 0 | m:1 |
+| `m` | t | `count['m']--` → 0 | (all zero) |
+
+All slots end at zero → return `true`.
+
+---
+
 ## Comparison
 
 | | Frequency Array | Sort |
