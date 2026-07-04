@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> sortArray(vector<int>& nums) {
-        // Insertion sort
         int n = nums.size();
 
         for(int i = 0; i < n; i++) {

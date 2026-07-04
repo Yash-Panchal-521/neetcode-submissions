@@ -150,4 +150,31 @@ Sorting `[5, 2, 4, 1, 3]` — orange = key just picked up, red = shifting/insert
 
 ---
 
-## Example Walkt
+## Example Walkthrough (Solution 3 — Insertion Sort)
+
+Input: `nums = [5, 2, 4, 1, 3]`
+
+| i | key | Shifts (j walked back while nums[j] > key) | nums after insertion |
+|---|---|---|---|
+| 1 | 2 | j=0: `5 > 2` → shift 5 right; j=-1 → stop | `[2, 5, 4, 1, 3]` |
+| 2 | 4 | j=1: `5 > 4` → shift 5 right; j=0: `2 > 4`? No → stop | `[2, 4, 5, 1, 3]` |
+| 3 | 1 | j=2: `5>1` shift; j=1: `4>1` shift; j=0: `2>1` shift; j=-1 → stop | `[1, 2, 4, 5, 3]` |
+| 4 | 3 | j=3: `5>3` shift; j=2: `4>3` shift; j=1: `2>3`? No → stop | `[1, 2, 3, 4, 5]` |
+
+Final result: `[1, 2, 3, 4, 5]` — matches the expected sorted output.
+
+---
+
+## Comparison
+
+| | Bubble Sort | Selection Sort | Insertion Sort |
+|---|---|---|---|
+| Time (worst) | O(n²) | O(n²) | O(n²) |
+| Time (best) | O(n²) | O(n²) | **O(n)** |
+| Swaps/writes | Many (every inversion) | Exactly n-1 | Many (shifts), but only when needed |
+| Adaptive (fast on sorted input)? | ❌ | ❌ | ✅ |
+| Stable? | ✅ | ❌ (swap can reorder equal keys) | ✅ |
+| Preferred? | ❌ Weakest — no early exit, high swap count | ⚠️ Predictable but wasteful scans | ✅ Best of the three for small/nearly-sorted arrays |
+
+## Common Mistake
+All three are O(n²) algorithms. `Sort an Array` on LeetCode has inputs up to 5×10⁴ elements, so none of these will pass within the time limit at full scale — the intended solution is an O(n log n) approach like merge sort or randomized quicksort. These implementations are valuable for building sorting fundamentals, not for clearing the actual constraints.
